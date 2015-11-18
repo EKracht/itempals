@@ -12,7 +12,10 @@ function addItemToUser(){
   var itemName = $("#itemNameInput").val();
   var itemUrl = $("#itemURLInput").val();
   var itemDescription = $("#itemDescriptionInput").val();
-  var item = {name: itemName, description: itemDescription, url: itemUrl}
+  var cookie = document.cookie;
+  var arr = cookie.split(" ");
+  var userId = arr[1].slice(7);
+  var item = {name: itemName, description: itemDescription, url: itemUrl, userId: userId}
   $.post("/profile", item)
     .done(function(data){
     })
