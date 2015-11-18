@@ -1,0 +1,25 @@
+extends ./layout
+
+block css
+  link(href='../css/style.css', rel='stylesheet')
+
+block content
+    .container-fluid.well.span6#profileBG
+      .row-fluid
+        .span2
+          img.img-circle#picture(src='https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg')
+        .span8
+          h1#username username
+          h2#name name
+          h2#email email
+        .span2
+          button.btn.btn-default
+            a(href='/profile/profileEdit')
+              span.icon-wrench
+              |  Edit Profile
+
+
+block js
+  script(src='../js/main.js')
+  script(src='../js/login.js')
+  script(src='../js/profile.js')

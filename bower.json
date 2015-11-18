@@ -1,0 +1,23 @@
+{
+  "name": "userprofile",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Ethan Kracht <ethan1kracht@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/EKracht/userLogin", 
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "sweetalert": "~1.1.3"
+  }
+}

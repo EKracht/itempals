@@ -1,0 +1,29 @@
+body {
+  background-color: #F3FAB6;
+  text-align: center;
+}
+
+input {
+  display: block;
+}
+
+img {
+  height: 120px;
+  width: 120px;
+}
+
+span {
+  color: white;
+}
+
+#indexBG {
+  background-color: #F3FAB6;
+}
+
+#profileBG {
+  background-color: #CBE32D;
+}
+
+#profileEditBG {
+  background-color: #A8CD1B;
+}
