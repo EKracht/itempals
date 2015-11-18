@@ -18,7 +18,8 @@ block content
               span.icon-wrench
               |  Edit Profile
 
-        ul
+        table
+          tbody#userItemsOnly
           //- each item in user.items
           //-   li(class= item.name, data-id= item._id)= `name: ${item.name}, description: ${item.description}`
           //-     img(src= item.url)

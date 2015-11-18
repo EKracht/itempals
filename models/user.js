@@ -12,7 +12,7 @@ var userSchema = Schema({
   name: {type: String},
   email: {type: String},
   picture: {type: String},
-  items: [{type: Schema.Types.ObjectId, ref: 'Item'}]
+  items: [{name: {type: String}, description: {type: String}, url: {type: String}, _id:{type: String}}]
 });
 
 userSchema.statics.register = function(user, cb){

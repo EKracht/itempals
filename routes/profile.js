@@ -31,21 +31,23 @@ router.get('/profileInfo', function(req, res){
 router.post("/", function(req, res){
   var userId = req.body.userId;
   delete req.body["userId"];
-	console.log(req.body);
+	// console.log(req.body);
 	var item = new Item(req.body);
-	console.log("item in route", item);
+	// console.log("item in route", item);
 	item.save(function(err, data){
 		if (err) res.status(400).send("item could not be saved");
 		else {
-			User.findByIdAndUpdate(userId, {$set: {items: data._id}}, function(err, info){
-        if (err) res.status(err ? 400 : 200).send(err ? 'profile update failed' : info);
-        router.get('/', function(req, res) {
-          res.send(info);
-        });
-        console.log(data);
-				console.log(info);
+			User.findByIdAndUpdate(userId, {$push: {items: { name: data.name, description: data.description, url: data.url, _id: data._id }}}, function(err, info){
+        res.send(data);
+        // if (err) res.status(err ? 400 : 200).send(err ? 'profile update failed' : info);
+        // router.get('/', function(req, res) {
+        //   console.log('in get');
+        //   res.send(info);
+        // });
+        console.log('data', data);
+				console.log('info', info);
 			});
-		 }
+		}
 	})
 })
 
