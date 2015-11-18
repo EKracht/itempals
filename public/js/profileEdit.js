@@ -5,6 +5,20 @@ $(document).ready(init);
 function init(){
   $('#cancel').on('click', cancel);
   $('#saveProfile').on('click', saveProfile);
+  $("#items").on("click", addItemToUser);
+}
+
+function addItemToUser(){
+  var itemName = $("#itemNameInput").val();
+  var itemUrl = $("#itemURLInput").val();
+  var itemDescription = $("#itemDescriptionInput").val();
+  var item = {name: itemName, description: itemDescription, url: itemUrl}
+  $.post("/profile", item)
+    .done(function(data){
+    })
+    .fail(function(err){
+      console.error(err)
+    })
 }
 
 function cancel(){

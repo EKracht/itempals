@@ -9,7 +9,6 @@ function init(){
   profile.email = $('#emailInput').val();
   profile.picture = $('#urlInput').val();
 
-  var cookie = document.cookie;
   var arr = cookie.split(" ");
   profile._id = arr[1].slice(7);
 
