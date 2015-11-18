@@ -11,8 +11,8 @@ var userSchema = Schema({
   password: {type: String, required: true},
   name: {type: String},
   email: {type: String},
-  picture: {type: String}
-  // items: [{type: Schema.Types.ObjectId, ref: 'Item'}]
+  picture: {type: String},
+  items: [{type: Schema.Types.ObjectId, ref: 'Item'}]
 });
 
 userSchema.statics.register = function(user, cb){
