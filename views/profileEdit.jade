@@ -27,6 +27,14 @@ block content
               .col-lg-8
                 input.form-control#emailInput(type='text', placeholder='youremail@gmail.com')
             .form-group
+              h3 Item info
+              label.col-md-3.control-label Add Items to your collection:
+              .col-md-8
+                input.form-control#itemNameInput(type='text', placeholder='item name')
+                input.form-control#itemURLInput(type='text', placeholder='item image url')
+                input.form-control#itemDescriptionInput(type='text', placeholder='description of item')
+                input.btn.btn-primary#items(type='button', value='Add Item') 
+            .form-group
               label.col-md-3.control-label
               .col-md-8
                 input.btn.btn-primary#saveProfile(type='button', value='Save Changes')
@@ -34,7 +42,7 @@ block content
                 input.btn.btn-default#cancel(type='reset', value='Cancel')
     hr
 
+
 block js
     script(src='../js/main.js')
-    script(src='../js/login.js')
     script(src='../js/profileEdit.js')

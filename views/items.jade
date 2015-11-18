@@ -1,0 +1,24 @@
+extends ./layout
+
+block css
+  link(href='../css/style.css', rel='stylesheet')
+
+block content
+    .container-fluid.well.span6#profileBG
+      .row-fluid
+        .span2
+        each item in items
+          img.img-circle#picture(src= items.url)
+        .span8
+          h1#username username
+          h2#name name
+          h2#email email
+        .span2
+          button.btn.btn-default
+            a(href='/profile/profileEdit')
+              span.icon-wrench
+              |  Edit Profile
+
+
+block js
+  script(src='../js/items.js')

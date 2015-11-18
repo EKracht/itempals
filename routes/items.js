@@ -5,9 +5,17 @@ var router = express.Router();
 var User = require('../models/user');
 var Item = require('../models/item');
 
+//
 router.get('/', function(req, res) {
-  Item.find()
-  res.render("items", {title: "Items for Trade"});
+	// find all items, send the list of items to Jade
+	Item.find({}, function(err, items){
+		if (err){
+			res.status(400).send(err);
+		} else {			
+  		res.render("items", {items: items});
+		}
+	}) 
 });
 
-router.post('/')
+// router.post('/')
+module.exports = router;
