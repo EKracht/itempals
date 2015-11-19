@@ -22,3 +22,5 @@ function init(){
   .fail(function(error){
   })
 }
+
+//https://github.com/jfetter/stuffed/blob/master/public/js/main.js

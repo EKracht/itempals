@@ -1,0 +1,6 @@
+// make my and others trade items list scrollable
+#myTradeable, #othersTradeable{
+	max-height: 25%;
+	overflow-y:scroll;
+} 
+
