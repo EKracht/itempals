@@ -18,27 +18,44 @@ function addItemToUser(){
   var item = {name: itemName, description: itemDescription, url: itemUrl, userId: userId}
   $.post("/profile", item)
     .done(function(user){
-      user.items.forEach(function(item, index, all){
-      var url = item.url;
-      var name = item.name;
-      var description = item.description;
-      console.log(description, item.description)
-        var $item = $('<tr>').data("id", item._id);
-        var $name = $('<td>').text(name);
-        var $description = $('<td>').text(description);
-        var $src = $("<img>").attr("src", url);
-        var $url = $('<td>').append($src);
-        var $trash = $('<td>').append("<button>");
-        var $trade = $('<td>').append("<button>");
-        $item.append($name, $description, $url);
-        console.log($item);
-        $('#userItemsOnly').append($item);
-      })
+      console.log('user', user);
+      console.log('item', user.items[0]);
+      var url = user.items[0].url;
+      console.log('url', url);
+      var name = user.items[0].name;
+      console.log('name', name);
+      var description = user.items[0].description;
+      console.log('description', description);
+      debugger;
+      $('#item0Name').text(JSON.stringify(name));
+      console.log(name);
+      $('#item0Description').text(JSON.stringify(description));
+      $('#item0Pic').attr('src', JSON.stringify(url));
+      debugger;
+      window.location.replace('/profile');
+
+
+        // user.items.forEach(function(item, index, all){
+        // var url = item.url;
+        // var name = item.name;
+        // var description = item.description;
+        // console.log(description, item.description)
+        //   var $item = $('<tr>').data("id", item._id);
+        //   var $name = $('<td>').text(name);
+        //   var $description = $('<td>').text(description);
+        //   var $src = $("<img>").attr("src", url);
+        //   var $url = $('<td>').append($src);
+        //   var $trash = $('<td>').append("<button>");
+        //   var $trade = $('<td>').append("<button>");
+        //   $item.append($name, $description, $url);
+        //   console.log($item);
+        //   $('#userItemsOnly').append($item);
+        // })
       //window.location.replace('/profile');
-   })
+    })
     .fail(function(err){
       console.error(err)
-  })
+    })
 }
 
 

@@ -19,10 +19,16 @@ block content
               span.icon-wrench
               |  Edit Profile
 
-        table
-          ul#userItemsOnly
-            li(class= item.name, data-id= item._id)
-              img(src= item.url)
+        <hr>
+        
+        h2 Items:
+        table 
+          tbody#userItemsOnly
+            tr#item0
+              p#item0Name name
+              p#item0Description description
+              div
+                img#item0Pic
 
 
 

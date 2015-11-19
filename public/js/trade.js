@@ -1,10 +1,11 @@
 "use strict";
+
 $(document).ready(init);
 
-function init () {
-	$(".myTradeItems").onClick(moveToTradeMat);
-	$(".othersTradeItems").onClick(moveToTradeMat)
-	$("#sendTrade").onClick(sendTrade);
+function init() {
+	$(".myTradeItems").on('click', moveToTradeMat);
+	$(".othersTradeItems").on('click', moveToTradeMat)
+	$("#sendTrade").on('click', sendTrade);
 }
 
 function moveToTradeMat(){

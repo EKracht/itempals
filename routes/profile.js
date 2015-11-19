@@ -9,7 +9,6 @@ var mongoose = require("mongoose");
 var authMiddleware = require('../config/auth');
 
 router.get('/', authMiddleware, function(req, res) {
-
   res.render("profile", {title: "Profile"});
 });
 
