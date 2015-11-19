@@ -8,7 +8,7 @@ block content
     .container-fluid.well.span6#profileBG
       .row-fluid
         .span2
-          img.img-circle#picture(src='https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg')
+          img.img-circle#picture(src='http://orig15.deviantart.net/5470/f/2010/105/4/5/random_person_by_vurtov.jpg')
         .span8
           h1#username username
           h2#name name
@@ -18,17 +18,20 @@ block content
             a(href='/profile/profileEdit')
               span.icon-wrench
               |  Edit Profile
-
+          button.btn.btn-default
+            a(href='/trade')
+              span.icon-wrench
+              |  See Trades
         <hr>
         
-        h2 Items:
+        h2 Kittens:
         table 
-          tbody#userItemsOnly
-            tr#item0
-              p#item0Name name
-              p#item0Description description
+          tbody#userItemsOnly 
+            tr#item0 
+              p#item0Name Mittens
+              p#item0Description likes yarn, catnip, snuggling and going on walks
               div
-                img#item0Pic
+                img#item0Pic(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
 
 
 

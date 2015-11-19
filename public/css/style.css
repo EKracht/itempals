@@ -28,6 +28,18 @@ span {
   background-color: #A8CD1B;
 }
 
+.kittyDisplay {
+  border: 2px solid pink;
+}
+
+.tradingMat {
+  border: 2px solid pink;
+  margin-right: 10%;
+  margin-left: 10%;
+  height: 250px;
+  width: 80%;
+}
+
 tr{
 	height: 50px;
 	width: 50px;

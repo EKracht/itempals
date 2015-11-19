@@ -11,9 +11,14 @@ block content
         // left column
         .col-md-3
           .text-center
-            img.avatar.img-circle(src='//placehold.it/120', alt='avatar')
+            img.avatar.img-circle(src='http://orig15.deviantart.net/5470/f/2010/105/4/5/random_person_by_vurtov.jpg', alt='avatar')
             h6 Link a photo url!
             input.form-control#urlInput(type='text')
+            h3 My Kitties
+            .kittyDisplay
+              h5 Mittens
+              h5 likes yarn, catnip, snuggling and going on walks
+              img(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
         // edit form column
         .col-md-9.personal-info
           h3 Personal info
@@ -31,15 +36,15 @@ block content
               .col-md-8
                 input.btn.btn-primary#saveProfile(type='button', value='Save Changes')
                 span
-                input.btn.btn-default#cancel(type='reset', value='Cancel')
+                input.btn.btn-default#cancel(type='reset', value='Back to Profile')
             .form-group
-              h3 Item info
-              label.col-md-3.control-label Add Items to your collection:
+              h3 Kitty info
+              label.col-md-3.control-label Add Kitties to your collection:
               .col-md-8
-                input.form-control#itemNameInput(type='text', placeholder='item name')
-                input.form-control#itemURLInput(type='text', placeholder='item image url')
-                input.form-control#itemDescriptionInput(type='text', placeholder='description of item')
-                input.btn.btn-primary#items(type='button', value='Add Item') 
+                input.form-control#itemNameInput(type='text', placeholder='kitty name')
+                input.form-control#itemURLInput(type='text', placeholder='kitty image url')
+                input.form-control#itemDescriptionInput(type='text', placeholder='description of kitty')
+                input.btn.btn-primary#items(type='button', value='Add Ktties') 
 
 
 
