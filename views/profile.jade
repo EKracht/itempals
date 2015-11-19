@@ -4,6 +4,7 @@ block css
   link(href='../css/style.css', rel='stylesheet')
 
 block content
+
     .container-fluid.well.span6#profileBG
       .row-fluid
         .span2
@@ -19,10 +20,9 @@ block content
               |  Edit Profile
 
         table
-          tbody#userItemsOnly
-          //- each item in user.items
-          //-   li(class= item.name, data-id= item._id)= `name: ${item.name}, description: ${item.description}`
-          //-     img(src= item.url)
+          ul#userItemsOnly
+            li(class= item.name, data-id= item._id)
+              img(src= item.url)
 
 
 

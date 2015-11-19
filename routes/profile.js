@@ -9,6 +9,7 @@ var mongoose = require("mongoose");
 var authMiddleware = require('../config/auth');
 
 router.get('/', authMiddleware, function(req, res) {
+
   res.render("profile", {title: "Profile"});
 });
 
@@ -38,7 +39,7 @@ router.post("/", function(req, res){
 		if (err) res.status(400).send("item could not be saved");
 		else {
 			User.findByIdAndUpdate(userId, {$push: {items: { name: data.name, description: data.description, url: data.url, _id: data._id }}}, function(err, info){
-        res.send(data);
+        res.send(info); 
         // if (err) res.status(err ? 400 : 200).send(err ? 'profile update failed' : info);
         // router.get('/', function(req, res) {
         //   console.log('in get');

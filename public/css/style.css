@@ -27,3 +27,9 @@ span {
 #profileEditBG {
   background-color: #A8CD1B;
 }
+
+tr{
+	height: 50px;
+	width: 50px;
+	background-color: orange;
+}
