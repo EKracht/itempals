@@ -11,7 +11,7 @@ var itemSchema = mongoose.Schema({
   createdAt: {type: Date, required: true, default: new Date() },
   owner: {type: String, required: true},
   trade: {type: Boolean, required: true, default: false},
-  inTrade: {type: Boolean, required: true, default: false}
+  tradeNumber: {type: String, default: ""}
 });
 
 Item = mongoose.model('Item', itemSchema);

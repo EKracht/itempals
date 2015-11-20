@@ -24,6 +24,19 @@ function init(){
   })
   $('.byeKitty').on('click', byeKitty);
   $('.tradeKitty').on('click', tradeKitty);
+  $(".accept").on("click", acceptTrade);
+  $(".decline").on("click", declineTrade);
+}
+
+function acceptTrade(){
+  console.log("trade accepted")
+  //put request to route to update both users and swap owner field from 
+  // one to the other
+}
+
+function declineTrade(){
+  console.log("trade declined");
+  //put request to clear out the trade number and change the up for trade to false
 }
 
 function tradeKitty(e){
@@ -44,6 +57,9 @@ function tradeKitty(e){
     console.log('bad');
   });
 }
+
+
+
 
 function byeKitty(e){
   var $target = $(e.target);

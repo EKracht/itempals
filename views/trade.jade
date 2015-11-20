@@ -18,27 +18,35 @@ block content
               |  Edit Profile
         <hr>
         .row
-          .col.sm.6
+          .col-xs-6
             h2 My Kittens:
             table 
               tbody#userItemsOnly 
                 each item in uItems
-                    p.item0Name= item.name
-                    p.item0Description= item.description
+                  .myKitty(data-id= item._id.toString())
+                    p.kittyName= item.name
+                    p.kittyDescription= item.description
                     div
-                      img.item0Pic(src= item.url)
-          .col.sm.6
+                      img.kittyPic(src= item.url)
+          .col-xs-6
             h2 Other Kittens:
             table 
               tbody#otherItemsOnly 
                 each item in oItems
-                  tr.item0
-                    p.item0Name= item.name
-                    p.item0Description= item.description
+                  .otherKitty(data-id= item._id.toString())
+                    p.kittyName= item.name
+                    p.kittyDescription= item.description
                     div
-                      img.item0Pic(src= item.url)
-          .col.sm.12 click on your kitty and another kitty to propose a trade
-          .col.sm.12.tradingMat 
+                      img.kittyPic(src= item.url)
+          .col-xs-12 Click on your kitty and another kitty and place inside the blue boxes to propose a trade.
+          .col-xs-12.tradingMat
+            .row
+              .col-xs-6.yourKittyMat Your Kitty
+              .col-xs-6.otherKittyMat Other Kitty
+            .row
+              button#proposeTrade Propose Kitty Trade
+
+
 
 
 
@@ -46,3 +54,4 @@ block js
   script(src='../js/main.js')
   script(src='../js/login.js')
   script(src='../js/profile.js')
+  script(src='../js/trade.js')

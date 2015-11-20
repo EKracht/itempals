@@ -28,16 +28,38 @@ router.get('/', authMiddleware, function(req, res) {
   var userId = req.cookies.userId;
   Item.find({}, function (err, items){
     var uItems = [];
+    var trades = [];
     if (!err) {
       items.forEach(function(item, index, all){
         if (item.owner == userId) {
           uItems.push(item);
+          console.log("TRADE NO" , item.tradeNumber, "ITEM", item)
+          if (item.tradeNumber.length > 0) {
+            var thisTrade = {}
+            var ids = item.tradeNumber.split("FOR")
+            var kitty1Id = ids[0];
+            var kitty2Id = ids[1]
+            items.findById(kitty1Id, function(err, kitty){
+              console.log(kitty)
+              //create a key of kitty2 and put the entire
+              // kitty 2 object in that key
+              thisTrade.kitty1= kitty;
+            })
+             items.findById(kitty2Id, function(err, kitty){
+              console.log(kitty)
+              //create a key of kitty2 and put the entire
+              // kitty 2 object in that key
+              thisTrade.kitty2= kitty
+              // push the entire trade into the trades div
+              trades.push(thisTrade)
+            })
+          }
         }
       });
     }
     console.log('items:', items);
     console.log('uItems:', uItems);
-    res.render('profile', {title: "Profile", items: uItems});
+    res.render('profile', {title: "Profile", items: uItems, trades: trades});
   })
 
   // User.findById(id, function(err, profile){

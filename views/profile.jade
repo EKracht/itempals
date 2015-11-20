@@ -24,7 +24,7 @@ block content
               |  See Trades
         <hr>
         .row
-          .col.sm.6
+          .col-sm-6.scrollable
             h2 My Kittens:
             table 
               tbody#userItemsOnly 
@@ -36,17 +36,33 @@ block content
                     p.item0Description= item.description
                     div
                       img.item0Pic(src= item.url)
-        //-     .col.sm.6
-        //-       h2 Proposed Trades:
-        //-       table 
-        //-         tbody#userItemsOnly 
-        //-           tr#item0 
-        //-             p#item0Name Muffin
-        //-             p#item0Description likes to play in dirt and eat bugs. Good mouser
-        //-             div
-        //-               img#item0Pic(src= "https://kittybloger.files.wordpress.com/2012/01/hello-kitty.jpg")
-        //-               button accept Trade
-        //-               button decline Trade
+          //- .col-sm-6.scrollable
+          //-   button.decline.btn.btn-danger(data-id= item._id.toString()) Decline Trade
+          //-   button.accept.btn.btn-danger(data-id= item._id.toString()) Accept Trade
+          //-   .row
+          //-     .col-sm-6
+          //-       h2 Trade:
+          //-       table 
+          //-         tbody#kitty1
+          //-           each item in trades.kitty1
+          //-             .mtkitties
+          //-               p.item0Name= item.name
+          //-               p.item0Description= item.description
+          //-               div
+          //-                 img.item0Pic(src= item.url)
+          //-     .col-sm-6
+          //-       h2 For:
+          //-       table 
+          //-         tbody#kitty2
+          //-           each item in trades.kitty2
+          //-             .otkitties
+          //-       button.decline.btn.btn-danger(data-id= item._id.toString()) Decline Trade
+          //-       button.accept.btn.btn-danger(data-id= item._id.toString()) Accept Trade
+          //-               p.item0Name= item.name
+          //-               p.item0Description= item.description
+          //-               div
+          //-                 img.item0Pic(src= item.url)
+
 
 
 block js

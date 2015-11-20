@@ -45,12 +45,24 @@ span {
   width: 80%;
 }
 
-tr{
-	height: 50px;
-	width: 50px;
-	background-color: orange;
+tr {
+  height: 50px;
+  width: 50px;
+  background-color: orange;
 }
 
-.trade{
+.trade {
   border: 3px dashed green;
+}
+
+.yourKittyMat {
+  border: 2px solid blue;
+}
+
+.otherKittyMat {
+  border: 2px solid blue;
+}
+
+.selected {
+  border: 7px solid purple;
 }
