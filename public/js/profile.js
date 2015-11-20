@@ -47,9 +47,11 @@ function byeKitty(e){
   })
   .done(function(data){
     console.log(data);
+    location.reload();
   })
   .fail(function(err){
     console.log(err);
+    location.reload();
   })
 
 }

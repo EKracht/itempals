@@ -30,7 +30,7 @@ block content
               tbody#userItemsOnly 
                 each item in items
                   tr.item0
-                    button.byeKitty.btn.btn-danger(data-id= item._id) Bye Bye Kitty
+                    button.byeKitty.btn.btn-danger(data-id= item._id.toString()) Bye Bye Kitty
                     p.item0Name= item.name
                     p.item0Description= item.description
                     div

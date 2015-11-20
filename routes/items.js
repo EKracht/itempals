@@ -18,12 +18,13 @@ router.get('/', function(req, res) {
 });
 
 router.delete('/', function(req, res){
-  var userId = req.cookies.userId;
   var kittyId = req.body.kittyId;
   console.log("kittyid:", kittyId);
   Item.findByIdAndRemove(kittyId, function(err, item){
+    if (err) { console.log("ERROR IN DELETE KITTY", err, item)
+      res.send("why would you delete a kitty :(" , err)
+    }
     res.send("bye bye kitty");
-    //if (err) res.send("why would you delete a kitty :(")
   });
 });
 
