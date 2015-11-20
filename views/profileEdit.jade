@@ -14,12 +14,20 @@ block content
             img.avatar.img-circle(src='http://orig15.deviantart.net/5470/f/2010/105/4/5/random_person_by_vurtov.jpg', alt='avatar')
             h6 Link a photo url!
             input.form-control#urlInput(type='text')
-            h3 My Kitties
-            .kittyDisplay
-              h5 Mittens
-              h5 likes yarn, catnip, snuggling and going on walks
-              img(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
-        // edit form column
+            //- h3 My Kitties
+            //- .kittyDisplay
+            //-   table 
+            //-     tbody#userItemsOnly 
+            //-       each item in uItems
+            //-         tr.item0
+            //-           button.delete.btn.btn-default#delete(data-id= item._id.toString()) delete
+            //-           button.trade.btn.btn-default#trade(data-id= item._id.toString()) trade
+            //-           p.item0Name= item.name
+            //-           p.item0Description= item.description
+            //-           div
+            //-             img.item0Pic(src= item.url)
+
+          // edit form column
         .col-md-9.personal-info
           h3 Personal info
           form.form-horizontal(role='form')
@@ -38,14 +46,14 @@ block content
                 span
                 input.btn.btn-default#cancel(type='reset', value='Back to Profile')
             .form-group
-              h3 Kitty info
+              h3 Got a new Kitty
               label.col-md-3.control-label Add Kitties to your collection:
               .col-md-8
-                input.form-control#itemNameInput(type='text', placeholder='kitty name')
-                input.form-control#itemURLInput(type='text', placeholder='kitty image url')
-                input.form-control#itemDescriptionInput(type='text', placeholder='description of kitty')
-                input.btn.btn-primary#items(type='button', value='Add Ktties') 
-                button disappear this kitty
+                input.kitten.form-control#itemNameInput(type='text', placeholder='kitty name')
+                input.kitten.form-control#itemURLInput(type='text', placeholder='kitty image url')
+                input.kitten.form-control#itemDescriptionInput(type='text', placeholder='description of kitty')
+                input.btn.btn-default#items(type='button', value='Add Ktties') 
+                input.btn.btn-primary#items(type='button', value='Disappear Kitties') 
 block js
     script(src='../js/main.js')
     script(src='../js/profileEdit.js')

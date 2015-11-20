@@ -5,14 +5,25 @@ var router = express.Router();
 var User = require("../models/user");
 var Item = require("../models/item");
 
-router.get('/', function(req, res) {
-  Item.find({}, function(err, items){
-    if (err){
-      res.status(400).send(err);
-    } else {      
-      res.render("trade", {items: items});
-    }
-  }) 
-});
+var authMiddleware = require('../config/auth');
 
+router.get('/', authMiddleware, function(req, res) {
+  var userId = req.cookies.userId;
+  Item.find({}, function (err, items){
+    var uItems = [];
+    var oItems = [];
+    if (!err) {
+      items.forEach(function(item, index, all){
+        if (item.owner == userId && item.trade == true) {
+          uItems.push(item);
+        } else if (item.owner != userId && item.trade == true) {
+          oItems.push(item);
+        }
+      });
+    }
+    console.log('items:', items);
+    console.log('uItems:', uItems);
+    res.render('trade', {title: "Profile", uItems: uItems, oItems: oItems});
+  })
+});
 module.exports = router;

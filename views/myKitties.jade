@@ -1,0 +1,13 @@
+          h3 My Kitties
+            .kittyDisplay
+              table 
+                tbody#userItemsOnly 
+                  each item in uItems
+                    tr.item0
+                      span
+                      input.byeKitty.btn.btn-default#remove(data-id= item._id.toString()) remove
+                      input.trade.btn.btn-default#trade(data-id= item._id.toString()) trade
+                      p.item0Name= item.name
+                      p.item0Description= item.description
+                      div
+                        img.item0Pic(src= item.url)

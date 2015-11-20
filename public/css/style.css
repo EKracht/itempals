@@ -16,6 +16,11 @@ span {
   color: white;
 }
 
+.kittyProfiles{
+    max-height: 25%;
+  overflow-y:scroll;
+}
+
 #indexBG {
   background-color: #F3FAB6;
 }
@@ -44,4 +49,8 @@ tr{
 	height: 50px;
 	width: 50px;
 	background-color: orange;
+}
+
+.tradeKitty{
+  border: 3px dashed green;
 }

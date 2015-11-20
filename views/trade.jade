@@ -10,22 +10,25 @@ block content
       .row
         .col-sm-6#myTradable
           h2 My Kittens:
-          table 
-            tbody#userItemsOnly 
-              tr#item0 
-                p#item0Name Mittens
-                p#item0Description likes yarn, catnip, snuggling and going on walks
-                div
-                  img#item0Pic(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
-        .col-sm-6#myTradable
+            table 
+              tbody#userItemsOnly 
+                each item in uItems
+                  tr.item0
+                    p.item0Name= item.name
+                    p.item0Description= item.description
+                    div
+                      img.item0Pic(src= item.url)
+
+        .col-sm-6#othersTradable
           h2 Other Kittens:
-          table 
-            tbody#userItemsOnly 
-              tr#item0 
-                p#item0Name Buttons
-                p#item0Description likes to play with buttons, chasing laser pointers, cuddling with puppies
-                div
-                  img#item0Pic(src= "http://i.huffpost.com/gen/810548/original.jpg")
+            table 
+              tbody#otherItemsOnly 
+                each item in oItems
+                  tr.item0
+                    p.item0Name= item.name
+                    p.item0Description= item.description
+                    div
+                      img.item0Pic(src= item.url)
       .row
         .col-sm-12
           .tradingMat Propose a trade here

@@ -9,6 +9,8 @@ function init(){
   profile.email = $('#emailInput').val();
   profile.picture = $('#urlInput').val();
 
+  $('.tradeKitty').on('click', tradeKitty);
+
   var arr = cookie.split(" ");
   profile._id = arr[1].slice(7);
   var userId = profile._id;
@@ -23,6 +25,25 @@ function init(){
   .fail(function(error){
   })
   $('.byeKitty').on('click', byeKitty);
+}
+
+function tradeKitty(e){
+  var $target = $(e.target)
+  $target.toggleClass('trade');
+  var kittyId = $target.data('id');
+  $.ajax({
+    type: "PUT",
+    url: "/items",
+    data: {kittyId: kittyId}
+  })
+  .done(function(data){
+    location.reload();
+    console.log('worked');
+  })
+  .fail(function(err){
+    location.reload();
+    console.log('bad');
+  });
 }
 
 function byeKitty(e){
