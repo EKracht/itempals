@@ -28,7 +28,7 @@ function init(){
 
 function tradeKitty(e){
   var $target = $(e.target)
-  $target.toggleClass('trade');
+  $target.parent().toggleClass("trade");
   var kittyId = $target.data('id');
   $.ajax({
     type: "PUT",
@@ -47,6 +47,7 @@ function tradeKitty(e){
 
 function byeKitty(e){
   var $target = $(e.target);
+ debugger;
   var kittyId = $target.data('id');
   $.ajax({
     type: "DELETE",

@@ -29,7 +29,7 @@ block content
             table 
               tbody#userItemsOnly 
                 each item in items
-                  tr.item0
+                  .item
                     button.byeKitty.btn.btn-danger(data-id= item._id.toString()) Remove Kitty
                     button.tradeKitty.btn.btn-danger(data-id= item._id.toString()) Trade Kitty
                     p.item0Name= item.name
