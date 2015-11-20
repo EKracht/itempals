@@ -28,7 +28,7 @@ function init(){
 
 function tradeKitty(e){
   var $target = $(e.target)
-  $target.toggleClass('trade');
+  $target.parent().toggleClass('trade');
   var kittyId = $target.data('id');
   $.ajax({
     type: "PUT",
@@ -54,13 +54,25 @@ function byeKitty(e){
     data: {kittyId: kittyId}
   })
   .done(function(data){
-    location.reload();
-    console.log('worked');
+    console.log(data);
   })
   .fail(function(err){
-    location.reload();
-    console.log('bad');
+    console.log(err);
   });
+
+  $.ajax({
+    type: "DELETE",
+    url: "/profile",
+    data: {kittyId: kittyId}
+  })
+  .done(function(data){
+    console.log(data);
+    location.reload();
+  })
+  .fail(function(err){
+    console.log(err);
+    location.reload();
+  })
 
 }
 //https://github.com/jfetter/stuffed/blob/master/public/js/main.js

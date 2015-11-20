@@ -22,31 +22,27 @@ router.put('/', function(req, res){
     }
   })
 });
+
 //
 router.get('/', function(req, res) {
-	// find all items, send the list of items to Jade
-	Item.find({}, function(err, items){
-		if (err){
-			res.status(400).send(err);
-		} else {			
-  		res.render("items", {items: items});
-		}
-  });
+  // find all items, send the list of items to Jade
+  Item.find({}, function(err, items){
+    if (err){
+      res.status(400).send(err);
+    } else {      
+      res.render("items", {items: items});
+    }
+  }) 
 });
 
 router.delete('/', function(req, res){
   var kittyId = req.body.kittyId;
-
   console.log("kittyid:", kittyId);
   Item.findByIdAndRemove(kittyId, function(err, item){
-    if (err) {
-      console.log('err', err);
-      console.log('item', item);
-      res.status(400).send("error");
-    } else {
-    res.send("bye bye kitty");
+    if (err) { console.log("ERROR IN DELETE KITTY", err, item)
+      res.send("why would you delete a kitty :(" , err)
     }
-    //if (err) res.send("why would you delete a kitty :(")
+    res.send("bye bye kitty");
   });
 });
 

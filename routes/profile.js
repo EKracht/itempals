@@ -77,11 +77,11 @@ router.put('/', function(req, res){
 });
 
 router.post("/", function(req, res){
-	var item = new Item(req.body);
-	// console.log("item in route", item);
-	item.save(function(err, data){
-		if (err) res.status(400).send("item could not be saved");
-		// else {
+  var item = new Item(req.body);
+  // console.log("item in route", item);
+  item.save(function(err, data){
+    if (err) res.status(400).send("item could not be saved");
+    // else {
   //      User.findByIdAndUpdate({$push: {items: { name: data.name, description: data.description, url: data.url, _id: data._id, owner: data.owner }}}, function(err, info){
   //      res.send(info);
   //      // if time look into not sending back hashed pass
@@ -94,7 +94,8 @@ router.post("/", function(req, res){
   //       //console.log('info', info);
   //      }); 
   //    }
-	})
+  res.send(data)
+  })
 })
 
 module.exports = router;

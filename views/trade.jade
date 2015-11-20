@@ -1,76 +1,57 @@
-
 extends ./layout
 
 block css
-    link(href='../css/style.css', rel='stylesheet')
+  link(href='../css/style.css', rel='stylesheet')
 
 block content
-    #containsItems
-      | .
-      .row
-        //- .col-sm-6#myTradable
-        //-   h2 My Kittens:
-        //-   table 
-        //-     tbody#userItemsOnly 
-        //-       tr#item0 
-        //-         p#item0Name Mittens
-        //-         p#item0Description likes yarn, catnip, snuggling and going on walks
-        //-         div
-        //-           img#item0Pic(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
-        //- .col-sm-6#myTradable
-        //-   h2 Other Kittens:
-        //-   table 
-        //-     tbody#userItemsOnly 
-        //-       tr#item0 
-        //-         p#item0Name Buttons
-        //-         p#item0Description likes to play with buttons, chasing laser pointers, cuddling with puppies
-        //-         div
-        //-           img#item0Pic(src= "http://i.huffpost.com/gen/810548/original.jpg")
 
-        .col-sm-6#myTradable
-          h2 My Kittens:
+    .container-fluid.well.span6#profileBG
+      .row-fluid
+        .span2
+          img.img-circle#picture(src='http://orig15.deviantart.net/5470/f/2010/105/4/5/random_person_by_vurtov.jpg')
+        .span8
+          h1#username username
+        .span2
+          button.btn.btn-default
+            a(href='/profile/profileEdit')
+              span.icon-wrench
+              |  Edit Profile
+        <hr>
+        .row
+          .col-xs-6
+            h2 My Kittens:
             table 
               tbody#userItemsOnly 
-                each item in items
-                  tr.item0
-                    p.item0Name= item.name
-                    p.item0Description= item.description
+                each item in uItems
+                  .myKitty(data-id= item._id)
+                    p.kittyName= item.name
+                    p.kittyDescription= item.description
                     div
-                      img.item0Pic(src= item.url)
-
-        .col-sm-6#othersTradable
-          h2 Other Kittens:
+                      img.kittyPic(src= item.url)
+          .col-xs-6
+            h2 Other Kittens:
             table 
               tbody#otherItemsOnly 
-                each item in items
-                  tr.item0
-                    p.item0Name= item.name
-                    p.item0Description= item.description
+                each item in oItems
+                  .otherKitty(data-id= item._id)
+                    p.kittyName= item.name
+                    p.kittyDescription= item.description
                     div
-                      img.item0Pic(src= item.url)
-      .row
-        .col-sm-12
-          .tradingMat Propose a trade here
-          button send trade request
-            
-      //- each item in user.items if (items.tradeable === true)
-      //-       .myTradeItems(data-id= item._id class= user.name)= item.name
-      //-         p= item.description
-      //-         img(src= item.url)
-      //-         p(data-id= user._id)= user.name
-      //-   .col-sm-6#othersTradable each item in items if (tradeable === item:not(hasClass("user.name"))
-      //-       .othersTradeItems(data-id= item._id)= item.name
-      //-         p= item.description
-      //-         img(src= item.url)
-      //-         p(data-id= user._id)= user.name   
-      //- .row#tradingMat
-      //-   .col-sm-5#myItem
-      //-   .col-sm-5#othersItem
-      //-   .col-sm-1#tradeButton
-      //-     button#sendTrade
+                      img.kittyPic(src= item.url)
+          .col-xs-12 Click on your kitty and another kitty and place inside the blue boxes to propose a trade.
+          .col-xs-12.tradingMat
+            .row
+              .col-xs-6.yourKittyMat Your Kitty
+              .col-xs-6.otherKittyMat Other Kitty
+            .row
+              button#proposetrade Propose Kitty Trade
+
+
+
+
 
 block js
-        script(src='../js/trade.js')
-        srcipt(src="../js/main.js")
-        script(src='../js/login.js')
-        script(src='../js/profile.js')
+  script(src='../js/main.js')
+  script(src='../js/login.js')
+  script(src='../js/profile.js')
+  script(src='../js/trade.js')

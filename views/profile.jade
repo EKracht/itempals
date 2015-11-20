@@ -24,12 +24,12 @@ block content
               |  See Trades
         <hr>
         .row
-          .col.sm.6
+          .col-sm-6
             h2 My Kittens:
             table 
               tbody#userItemsOnly 
                 each item in items
-                  tr.item0
+                  .item
                     button.byeKitty.btn.btn-danger(data-id= item._id.toString()) Remove Kitty
                     button.tradeKitty.btn.btn-danger(data-id= item._id.toString()) Trade Kitty
                     p.item0Name= item.name
@@ -47,8 +47,6 @@ block content
         //-               img#item0Pic(src= "https://kittybloger.files.wordpress.com/2012/01/hello-kitty.jpg")
         //-               button accept Trade
         //-               button decline Trade
-
-
 block js
   script(src='../js/main.js')
   script(src='../js/login.js')
