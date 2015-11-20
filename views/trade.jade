@@ -23,7 +23,7 @@ block content
             table 
               tbody#userItemsOnly 
                 each item in uItems
-                  .myKitty(data-id= item._id)
+                  .myKitty(data-id= item._id.toString())
                     p.kittyName= item.name
                     p.kittyDescription= item.description
                     div
@@ -33,7 +33,7 @@ block content
             table 
               tbody#otherItemsOnly 
                 each item in oItems
-                  .otherKitty(data-id= item._id)
+                  .otherKitty(data-id= item._id.toString())
                     p.kittyName= item.name
                     p.kittyDescription= item.description
                     div
@@ -44,7 +44,7 @@ block content
               .col-xs-6.yourKittyMat Your Kitty
               .col-xs-6.otherKittyMat Other Kitty
             .row
-              button#proposetrade Propose Kitty Trade
+              button#proposeTrade Propose Kitty Trade
 
 
 

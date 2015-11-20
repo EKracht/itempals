@@ -10,11 +10,28 @@ function init() {
 }
 
 function proposeTrade(e){
+	console.log('button for propose');
+	var $bigMat = $(e.target).parent().parent().parent();
+	var $uKitty = $bigMat.find('.myKitty');
+	var $oKitty = $bigMat.find('.otherKitty');
+	var uId = $uKitty.data('id');
+	var oId = $oKitty.data('id');
+	var url = uId + 'FOR' + oId;
 	
+	$.ajax({
+		type: "PUT",
+		url: "/items",
+		data: {tradeNumber: url}
+	})
+	.done(function(data){
+		console.log(data);
+	})
+	.fail(function(err){
+		console.log(err);
+	})
 }
 
 function selectKitty(e){
-	console.log('click on pic');
 	var $target = $(e.target).parent().parent();
 	var isSelected = $target.hasClass('selected');
 
