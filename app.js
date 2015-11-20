@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 
+
+
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/userauth';
 
 var mongoose = require('mongoose');
@@ -32,6 +34,9 @@ app.use('/users', require('./routes/users'));
 app.use('/profile', require('./routes/profile'));
 app.use('/items', require('./routes/items'));
 app.use('/trade', require('./routes/trade'));
+
+app.use(express.static('views'));
+app.use(express.static(__dirname + '../public'));
 
 // 404 HANDLER
 app.use(function(req, res){

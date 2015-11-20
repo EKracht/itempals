@@ -23,16 +23,27 @@ block content
               span.icon-wrench
               |  See Trades
         <hr>
-        
-        h2 Kittens:
-        table 
-          tbody#userItemsOnly 
-            tr#item0 
-              p#item0Name Mittens
-              p#item0Description likes yarn, catnip, snuggling and going on walks
-              div
-                img#item0Pic(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
-
+        .row
+          .col.sm.6
+            h2 My Kittens:
+            table 
+              tbody#userItemsOnly 
+                tr#item0 
+                  p#item0Name Mittens
+                  p#item0Description likes yarn, catnip, snuggling and going on walks
+                  div
+                    img#item0Pic(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
+            .col.sm.6
+              h2 Proposed Trades:
+              table 
+                tbody#userItemsOnly 
+                  tr#item0 
+                    p#item0Name Muffin
+                    p#item0Description likes to play in dirt and eat bugs. Good mouser
+                    div
+                      img#item0Pic(src= "https://kittybloger.files.wordpress.com/2012/01/hello-kitty.jpg")
+                      button accept Trade
+                      button decline Trade
 
 
 block js

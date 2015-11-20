@@ -18,21 +18,30 @@ function addItemToUser(){
   var item = {name: itemName, description: itemDescription, url: itemUrl, userId: userId}
   $.post("/profile", item)
     .done(function(user){
-      console.log('user', user);
-      console.log('item', user.items[0]);
-      var url = user.items[0].url;
-      console.log('url', url);
-      var name = user.items[0].name;
-      console.log('name', name);
-      var description = user.items[0].description;
-      console.log('description', description);
-      debugger;
-      $('#item0Name').text(JSON.stringify(name));
-      console.log(name);
-      $('#item0Description').text(JSON.stringify(description));
-      $('#item0Pic').attr('src', JSON.stringify(url));
-      debugger;
+       console.log('user', user)
+       debugger;
+      $.get("/profile/")
+           .done(function(user){
       window.location.replace('/profile');
+            console.log("page should have rendered by now")
+           })
+           .fail(function(err){
+             console.error("err");
+          })
+      // console.log('item', user.items[0]);
+      // var url = user.items[0].url;
+      // console.log('url', url);
+      // var name = user.items[0].name;
+      // console.log('name', name);
+      // var description = user.items[0].description;
+      // console.log('description', description);
+      // debugger;
+      // $('#item0Name').text(JSON.stringify(name));
+      // console.log(name);
+      // $('#item0Description').text(JSON.stringify(description));
+      // $('#item0Pic').attr('src', JSON.stringify(url));
+      // debugger;
+      //window.location.replace('/profile');
 
 
         // user.items.forEach(function(item, index, all){
