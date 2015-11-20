@@ -94,6 +94,7 @@ router.post("/", function(req, res){
   //       //console.log('info', info);
   //      }); 
   //    }
+  res.send(data)
 	})
 })
 

@@ -9,7 +9,6 @@ function init(){
 }
 
 function addItemToUser(){
-  $(".kitten").val("")
   var itemName = $("#itemNameInput").val();
   var itemUrl = $("#itemURLInput").val();
   var itemDescription = $("#itemDescriptionInput").val();
@@ -19,12 +18,10 @@ function addItemToUser(){
   var item = {name: itemName, description: itemDescription, url: itemUrl, owner: userId}
   $.post("/profile", item)
     .done(function(user){
+        $(".kitten").val("")
        console.log('user', user)
-       debugger;
       $.get("/profile/")
            .done(function(user){
-      window.location.replace('/profile');
-            console.log("page should have rendered by now")
            })
            .fail(function(err){
              console.error("err");

@@ -9,8 +9,6 @@ function init(){
   profile.email = $('#emailInput').val();
   profile.picture = $('#urlInput').val();
 
-  $('.tradeKitty').on('click', tradeKitty);
-
   var arr = cookie.split(" ");
   profile._id = arr[1].slice(7);
   var userId = profile._id;
@@ -25,6 +23,7 @@ function init(){
   .fail(function(error){
   })
   $('.byeKitty').on('click', byeKitty);
+  $('.tradeKitty').on('click', tradeKitty);
 }
 
 function tradeKitty(e){

@@ -5,6 +5,24 @@ var router = express.Router();
 var User = require('../models/user');
 var Item = require('../models/item');
 
+router.put('/', function(req, res){
+  var kittyId = req.body.kittyId;
+  var trade = false;
+  console.log('kittyid', kittyId);
+  Item.findById(kittyId, function(err, item){
+    console.log('item', item);
+    if (item.trade === true) {
+      Item.findByIdAndUpdate(kittyId, {$set: {trade: false}}, function(err, item){
+        if (err) res.send(err);
+      })
+    } else {
+      Item.findByIdAndUpdate(kittyId, {$set: {trade: true}}, function(err, item){
+      if (err) res.send(err);
+      })
+    }
+  })
+});
+
 //
 router.get('/', function(req, res) {
 	// find all items, send the list of items to Jade
