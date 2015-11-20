@@ -10,7 +10,7 @@ block content
         .span2
           img.img-circle#picture(src='http://orig15.deviantart.net/5470/f/2010/105/4/5/random_person_by_vurtov.jpg')
         .span8
-          h1#username username
+          h1#username profile.username
           h2#name name
           h2#email email
         .span2
@@ -28,22 +28,23 @@ block content
             h2 My Kittens:
             table 
               tbody#userItemsOnly 
-                tr#item0 
-                  p#item0Name Mittens
-                  p#item0Description likes yarn, catnip, snuggling and going on walks
-                  div
-                    img#item0Pic(src= "http://www.plupetstore.com/wp-content/uploads/2015/08/l-Newborn-kitten.jpg")
-            .col.sm.6
-              h2 Proposed Trades:
-              table 
-                tbody#userItemsOnly 
+                each item in profile.items
                   tr#item0 
-                    p#item0Name Muffin
-                    p#item0Description likes to play in dirt and eat bugs. Good mouser
+                    p#item0Name= item.name
+                    p#item0Description= item.description
                     div
-                      img#item0Pic(src= "https://kittybloger.files.wordpress.com/2012/01/hello-kitty.jpg")
-                      button accept Trade
-                      button decline Trade
+                      img#item0Pic(src= item.url)
+        //-     .col.sm.6
+        //-       h2 Proposed Trades:
+        //-       table 
+        //-         tbody#userItemsOnly 
+        //-           tr#item0 
+        //-             p#item0Name Muffin
+        //-             p#item0Description likes to play in dirt and eat bugs. Good mouser
+        //-             div
+        //-               img#item0Pic(src= "https://kittybloger.files.wordpress.com/2012/01/hello-kitty.jpg")
+        //-               button accept Trade
+        //-               button decline Trade
 
 
 block js

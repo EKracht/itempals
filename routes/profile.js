@@ -11,11 +11,13 @@ var authMiddleware = require('../config/auth');
 /////// THESET TWO ROUTES ARE UNDER CONSTRUCTION???? ///////////
 router.get('/', authMiddleware, function(req, res) {
   console.log("BODY", req.cookies)
-  User.findById(req.cookies.userId, function(err, profile){
+  var id = req.cookies.userId
+  User.findById(id, function(err, profile){
   if (err){
     res.send("access denied");
     } else {
-      res.render("/profile", {title: "Profile" });
+      console.log("TRYING TO RENDER", profile)
+      res.render("profile", {title: "Profile", profile: profile });
     }
   });
 });
