@@ -8,7 +8,10 @@ var itemSchema = mongoose.Schema({
   name: {type: String, required: true},
   description: {type: String},
   url: {type: String},
-  createdAt: {type: Date, required: true, default: new Date() }
+  createdAt: {type: Date, required: true, default: new Date() },
+  owner: {type: String, required: true},
+  trade: {type: Boolean, required: true, default: false},
+  inTrade: {type: Boolean, required: true, default: false}
 });
 
 Item = mongoose.model('Item', itemSchema);

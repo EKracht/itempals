@@ -15,7 +15,7 @@ function addItemToUser(){
   var cookie = document.cookie;
   var arr = cookie.split(" ");
   var userId = arr[1].slice(7);
-  var item = {name: itemName, description: itemDescription, url: itemUrl, userId: userId}
+  var item = {name: itemName, description: itemDescription, url: itemUrl, owner: userId}
   $.post("/profile", item)
     .done(function(user){
        console.log('user', user)
@@ -90,6 +90,7 @@ function saveProfile(){
   })
   .done(function(data){
     console.log('wtf', data);
+    window.location.replace('/profile');
   })
   .fail(function(err){
     console.log(err);

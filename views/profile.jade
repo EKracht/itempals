@@ -10,7 +10,7 @@ block content
         .span2
           img.img-circle#picture(src='http://orig15.deviantart.net/5470/f/2010/105/4/5/random_person_by_vurtov.jpg')
         .span8
-          h1#username profile.username
+          h1#username username
           h2#name name
           h2#email email
         .span2
@@ -28,12 +28,13 @@ block content
             h2 My Kittens:
             table 
               tbody#userItemsOnly 
-                each item in profile.items
-                  tr#item0 
-                    p#item0Name= item.name
-                    p#item0Description= item.description
+                each item in items
+                  tr.item0
+                    button.byeKitty.btn.btn-danger(data-id= item._id) Bye Bye Kitty
+                    p.item0Name= item.name
+                    p.item0Description= item.description
                     div
-                      img#item0Pic(src= item.url)
+                      img.item0Pic(src= item.url)
         //-     .col.sm.6
         //-       h2 Proposed Trades:
         //-       table 
