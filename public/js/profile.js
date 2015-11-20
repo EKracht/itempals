@@ -23,6 +23,26 @@ function init(){
   .fail(function(error){
   })
   $('.byeKitty').on('click', byeKitty);
+  $('.tradeKitty').on('click', tradeKitty);
+}
+
+function tradeKitty(e){
+  var $target = $(e.target)
+  $target.toggleClass('trade');
+  var kittyId = $target.data('id');
+  $.ajax({
+    type: "PUT",
+    url: "/items",
+    data: {kittyId: kittyId}
+  })
+  .done(function(data){
+    location.reload();
+    console.log('worked');
+  })
+  .fail(function(err){
+    location.reload();
+    console.log('bad');
+  });
 }
 
 function byeKitty(e){
@@ -34,23 +54,13 @@ function byeKitty(e){
     data: {kittyId: kittyId}
   })
   .done(function(data){
-    console.log(data);
+    location.reload();
+    console.log('worked');
   })
   .fail(function(err){
-    console.log(err);
+    location.reload();
+    console.log('bad');
   });
-
-  $.ajax({
-    type: "DELETE",
-    url: "/profile",
-    data: {kittyId: kittyId}
-  })
-  .done(function(data){
-    console.log(data);
-  })
-  .fail(function(err){
-    console.log(err);
-  })
 
 }
 //https://github.com/jfetter/stuffed/blob/master/public/js/main.js

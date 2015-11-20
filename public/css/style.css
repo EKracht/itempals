@@ -45,3 +45,7 @@ tr{
 	width: 50px;
 	background-color: orange;
 }
+
+.trade {
+  border: 3px dashed green;
+}
